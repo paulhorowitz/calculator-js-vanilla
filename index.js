@@ -51,3 +51,20 @@ function start() {
     let num2 = parseFloat(prompt('Enter second number'))
     operate(operator, num1, num2)
 }
+
+const plusButtonEl = document.getElementById("plus");
+const minusButtonEl = document.getElementById("minus");
+const multiplyButtonEl = document.getElementById("times");
+const divideButtonEl = document.getElementById("divide");
+const output = document.querySelector('#output');
+const clearButtonEl = document.getElementById("clear");
+plusButtonEl.addEventListener("click", (element) =>
+    output.textContent += '+');
+minusButtonEl.addEventListener("click", (element) =>
+    output.textContent += '-');
+multiplyButtonEl.addEventListener("click", (element) =>
+    output.textContent += '*');
+divideButtonEl.addEventListener("click", (element) =>
+    output.textContent += '/');
+clearButtonEl.addEventListener("click", (element) =>
+    output.textContent = '');
