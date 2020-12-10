@@ -60,7 +60,6 @@ function listening() {
     operatorEls.forEach(element => {
         element.addEventListener("click", (e) => {
             if (!num1) {
-                console.log('WHEE!!');
                 operator = element.textContent;
                 num1 = output.textContent;
                 console.log(num1)
@@ -100,9 +99,14 @@ function listening() {
         }))    
 
     equalsButtonEl.addEventListener("click", (element) => {
-        num2 = output.textContent;
-        if (num1 && num2) {
-            operate(operator, num1, num2);
+        if (num1) {
+            num2 = output.textContent
+            console.log(num2)
+            total = operate(operator, num1, num2);
+            num2 = undefined;
+            output.textContent = total;
+            num1 = undefined;
+            num2 = undefined;
         }
     })
 }
