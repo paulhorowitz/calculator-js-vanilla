@@ -4,7 +4,7 @@
     display: grid;
     grid-template-columns: 150px 150px 150px 150px;
     grid-auto-rows: 150px;
-    background-color: #2196F3;
+    background-color: #a10b13;
     padding: 10px;
     justify-content: center;
   }
@@ -24,7 +24,7 @@
 }
 
 .button {
-    background-color: aqua;
+    background-color: #e2078e;
     border: 1px solid;
     font-size: 100px;
     text-align: center;

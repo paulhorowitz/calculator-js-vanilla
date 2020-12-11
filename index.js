@@ -44,6 +44,10 @@ function operate(operator, num1, num2) {
         alert("Error")
         return;
     }
+    if (total.toString().length > 9) {
+        total = parseFloat(total.toExponential());
+        total = total.toPrecision(5);
+    }
     return total;
 }
 
@@ -62,9 +66,7 @@ function listening() {
             if (!num1) {
                 operator = element.textContent;
                 num1 = output.textContent;
-                console.log(num1)
                 output.textContent = element.textContent;
-                console.log(operator);
             }
             else {
                 num2 = output.textContent;
@@ -73,7 +75,6 @@ function listening() {
                 output.textContent = `${total}`;
                 num1 = total;
                 operator = element.textContent;
-                console.log(operator);
             }
         })
     });
@@ -93,15 +94,16 @@ function listening() {
             output.textContent == '*' || 
             output.textContent == '/' ||
             total == output.textContent) {
-            output.textContent = '';
+                output.textContent = '';
             }
-            output.textContent += element.textContent
+        if(output.textContent.length <9) {
+            output.textContent += element.textContent;
+        }
         }))    
 
     equalsButtonEl.addEventListener("click", (element) => {
         if (num1) {
             num2 = output.textContent
-            console.log(num2)
             total = operate(operator, num1, num2);
             num2 = undefined;
             output.textContent = total;
