@@ -55,3 +55,59 @@ body {
     text-align: right;
 
 }
+
+.zero {
+    animation: broken 3s;
+    transform: translate3d(0, 0, 0);
+    backface-visibility: hidden;
+    perspective: 1000px;
+    animation-fill-mode: forwards;
+}
+
+
+@keyframes broken {
+    0% {
+      transform: translate3d(0,0,0);
+      opacity: 1;
+    }
+  
+    5% {
+      transform: rotate(5deg);
+    }
+  
+    15% {
+      transform: rotate(-5deg);
+    }
+  
+    20% {
+      transform: rotate(5deg);
+    }
+  
+    25% {
+      transform: rotate(-5deg);
+    }
+  
+    50% {
+      transform: rotate(45deg);
+    }
+  
+    70% {
+      transform: translate3d(0,2000px,0);
+      opacity: 1;
+    }
+  
+    75% {
+      opacity: 0;
+    }
+  
+    100% {
+      transform: translate3d(0,-2000px,0);
+    }
+  }
+
+.reset {
+    display: none;
+    font-size: 80px;
+    align-items: center;
+    transform: translate(20%, -650%);
+}

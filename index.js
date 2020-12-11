@@ -3,6 +3,15 @@ let num2 = undefined;
 let total = undefined;
 let operator = undefined;
 
+const output = document.querySelector("#output");
+const clearButtonEl = document.getElementById("clear");
+const equalsButtonEl = document.getElementById("equals");
+const operatorEls = document.querySelectorAll(".operator");
+const digitEls = document.querySelectorAll('.digit');
+const decimalEl = document.getElementById("decimal");
+const containerEl = document.querySelector(".container");
+const resetEl = document.querySelector(".reset");
+
 function add(...args) {
     let total = 0
     for(let i = 0; i < args.length; i++) {
@@ -24,6 +33,14 @@ function multiply(...args) {
 }
 
 function divide(num1, num2) {
+    if (num2 == 0) {
+        
+        console.log("AAAAAAHHHH!!!")
+        containerEl.classList.add("zero")
+        setTimeout(function() {        
+            resetEl.style.display = 'block';
+        }, 3000)
+    } 
     return num1 / num2;
 }
 
@@ -34,10 +51,10 @@ function operate(operator, num1, num2) {
     else if (operator == '-') {
         total = parseFloat(subtract(num1, num2));
     }
-    else if (operator == '*') {
+    else if (operator == 'x') {
         total = multiply(num1, num2);
     }
-    else if (operator == '/') {
+    else if (operator == '%') {
         total = divide(num1, num2);
     }
     else {
@@ -50,13 +67,6 @@ function operate(operator, num1, num2) {
     }
     return total;
 }
-
-const output = document.querySelector("#output");
-const clearButtonEl = document.getElementById("clear");
-const equalsButtonEl = document.getElementById("equals");
-const operatorEls = document.querySelectorAll(".operator");
-const digitEls = document.querySelectorAll('.digit');
-const decimalEl = document.getElementById("decimal")
 
 function listening() {
     operatorEls.forEach(element => {
@@ -88,8 +98,8 @@ function listening() {
         element.addEventListener("click", (e) => {
         if (output.textContent == '+' || 
             output.textContent == '-' || 
-            output.textContent == '*' || 
-            output.textContent == '/' ||
+            output.textContent == 'x' || 
+            output.textContent == '%' ||
             total == output.textContent) {
                 output.textContent = '';
             }
