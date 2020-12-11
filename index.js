@@ -51,14 +51,12 @@ function operate(operator, num1, num2) {
     return total;
 }
 
-const plusButtonEl = document.getElementById("plus");
-const minusButtonEl = document.getElementById("minus");
-const multiplyButtonEl = document.getElementById("times");
-const divideButtonEl = document.getElementById("divide");
 const output = document.querySelector("#output");
 const clearButtonEl = document.getElementById("clear");
 const equalsButtonEl = document.getElementById("equals");
 const operatorEls = document.querySelectorAll(".operator");
+const digitEls = document.querySelectorAll('.digit');
+const decimalEl = document.getElementById("decimal")
 
 function listening() {
     operatorEls.forEach(element => {
@@ -86,7 +84,6 @@ function listening() {
         output.textContent = '';
     })
 
-    digitEls = document.querySelectorAll('.digit');
     digitEls.forEach(element =>
         element.addEventListener("click", (e) => {
         if (output.textContent == '+' || 
@@ -110,6 +107,11 @@ function listening() {
             num1 = undefined;
             num2 = undefined;
         }
+    })
+
+    decimalEl.addEventListener("click", (element) => {
+        if (!output.textContent.includes('.'))
+        output.textContent += '.';
     })
 }
 

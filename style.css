@@ -1,12 +1,17 @@
 @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@500&display=swap');
 
+body {
+    background-color: #ffe5d9;
+    color: #9d8189
+}
+
 .container {
     display: grid;
     grid-template-columns: 150px 150px 150px 150px;
     grid-auto-rows: 150px;
-    background-color: #a10b13;
     padding: 10px;
     justify-content: center;
+    padding-top: 200px;
   }
 
 .container div:nth-child(1) {
@@ -24,26 +29,26 @@
 }
 
 .button {
-    background-color: #e2078e;
+    background-color: #f4acb7;
     border: 1px solid;
     font-size: 100px;
     text-align: center;
     font-family: 'Roboto', sans-serif;
     padding-top: 15px;
-    color: #400d3b
+    color: #fffffc
 }
 
 .operator {
-    background-color: rgb(85, 78, 190);
+    background-color: #9d8189;
 }
 
 .equals {
-    background-color: rgb(85, 78, 190);
+    background-color: #9d8189;
 }
 
 .display {
-    border: 4px solid;
-    background-color: rgb(96, 189, 197);
+    border: 10px solid #fffffc;
+    background-color: #ffcad4;
     font-size: 100px;
     font-family: 'Roboto', sans-serif;
     padding: 15px;
