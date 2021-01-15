@@ -54,7 +54,7 @@ function operate(operator, num1, num2) {
     else if (operator == 'x') {
         total = multiply(num1, num2);
     }
-    else if (operator == '%') {
+    else if (operator == '/') {
         total = divide(num1, num2);
     }
     else {
@@ -99,7 +99,7 @@ function listening() {
         if (output.textContent == '+' || 
             output.textContent == '-' || 
             output.textContent == 'x' || 
-            output.textContent == '%' ||
+            output.textContent == '/' ||
             total == output.textContent) {
                 output.textContent = '';
             }
