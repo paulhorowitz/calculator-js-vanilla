@@ -111,7 +111,8 @@ body {
 
 .reset {
     display: none;
-    font-size: 80px;
-    align-items: center;
-    transform: translate(20%, -650%);
+    font-size: 70px;
+    flex-basis: auto;
+    justify-content: center;
+    transform: translate(0%, -800%);
 }

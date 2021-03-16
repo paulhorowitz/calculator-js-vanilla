@@ -33,16 +33,19 @@ function multiply(...args) {
 }
 
 function divide(num1, num2) {
+    
+    // Check to see if user is trying to divide by zero
     if (num2 == 0) {
         
-        console.log("AAAAAAHHHH!!!")
         containerEl.classList.add("zero")
         setTimeout(function() {        
-            resetEl.style.display = 'block';
+            resetEl.style.display = 'flex';
         }, 3000)
     } 
     return num1 / num2;
 }
+
+// Pass in the numbers and operators entered and run the relevant operator function
 
 function operate(operator, num1, num2) {
     if (operator == '+') {
@@ -61,6 +64,8 @@ function operate(operator, num1, num2) {
         alert("Error")
         return;
     }
+
+    // rounding if length of digits is above 9
     if (total.toString().length > 9) {
         total = parseFloat(total.toExponential());
         total = total.toPrecision(5);
@@ -68,6 +73,7 @@ function operate(operator, num1, num2) {
     return total;
 }
 
+// listener to wait for input from user
 function listening() {
     operatorEls.forEach(element => {
         element.addEventListener("click", (e) => {
@@ -87,6 +93,7 @@ function listening() {
         })
     });
 
+    // clear button resets variables and output on user interface
     clearButtonEl.addEventListener("click", (element) => {
         num1 = undefined;
         num2 = undefined;
@@ -94,6 +101,7 @@ function listening() {
         output.textContent = '';
     })
 
+    // if an operator is pressed we clear the screen so that the next number can be inputted
     digitEls.forEach(element =>
         element.addEventListener("click", (e) => {
         if (output.textContent == '+' || 
@@ -108,6 +116,7 @@ function listening() {
         }
         }))    
 
+    // if equals is pressed we display the total and reset the calculation variables
     equalsButtonEl.addEventListener("click", (element) => {
         if (num1) {
             num2 = output.textContent
@@ -119,6 +128,7 @@ function listening() {
         }
     })
 
+    // ensures we can't have two decimal places
     decimalEl.addEventListener("click", (element) => {
         if (!output.textContent.includes('.'))
         output.textContent += '.';
